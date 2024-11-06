@@ -46,10 +46,10 @@ class MainResource extends Resource
                 ])->label('Select Status'),
                 Radio::make('gender')->options([
                     'male' => 'Male',
-                    'fenale' => 'Female'
+                    'female' => 'Female'
                 ])->label('Gender'),
                 DatePicker::make('date_of_birth'),
-                Textarea::make('address')->columnSpan('full')
+                Textarea::make('address')->columnSpan('full'),
 
             ]);
     }
@@ -72,7 +72,8 @@ class MainResource extends Resource
                     ->colors([
                         'male' => 'success',
                         'female' => 'danger'
-                    ])
+                    ]),
+
 
             ])
             ->filters([
