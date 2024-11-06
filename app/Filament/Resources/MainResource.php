@@ -38,7 +38,6 @@ class MainResource extends Resource
                 Select::make('category_id')
                     ->label('Category')->required()->searchable()
                     ->options(Category::all()->pluck('name', 'id')),
-
                 TextInput::make('email'),
                 TextInput::make('number'),
                 Select::make('status')->options([
@@ -68,6 +67,7 @@ class MainResource extends Resource
                         'draft' => 'heroicon-o-pencil',
                         'published' => 'heroicon-o-check-circle',
                     }),
+
                 TextColumn::make('gender')
                     ->colors([
                         'male' => 'success',
