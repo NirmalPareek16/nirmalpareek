@@ -74,7 +74,6 @@ class MainResource extends Resource
                         'female' => 'danger'
                     ]),
 
-
             ])
             ->filters([
 
