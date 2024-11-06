@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\Main;
 use App\Models\Post;
 use Filament\Tables;
 use App\Models\Category;
@@ -10,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\IconColumn;
@@ -56,6 +58,9 @@ class CategoryResource extends Resource
                             ->default(true),
                     ])
                     ->columns(2),
+                Select::make('category_id')
+                    ->label('Main User')->required()->searchable()
+                    ->options(Main::all()->pluck('name', 'id')),
             ]);
     }
 
@@ -64,6 +69,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->searchable()->sortable(),
+                TextColumn::make('main.name'),
                 TextColumn::make('slug')->searchable()->sortable(),
                 IconColumn::make('is_visible')
                     ->label('Visibility')->boolean(),

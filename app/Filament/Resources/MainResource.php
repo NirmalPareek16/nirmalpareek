@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use App\Models\Main;
 use Filament\Tables;
+use App\Models\Category;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
@@ -33,6 +34,11 @@ class MainResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name'),
+
+                Select::make('category_id')
+                    ->label('Category')->required()->searchable()
+                    ->options(Category::all()->pluck('name', 'id')),
+
                 TextInput::make('email'),
                 TextInput::make('number'),
                 Select::make('status')->options([
@@ -54,6 +60,7 @@ class MainResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
+                TextColumn::make('category.name'),
                 TextColumn::make('email'),
                 TextColumn::make('number'),
                 IconColumn::make('status')

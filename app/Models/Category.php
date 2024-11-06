@@ -15,8 +15,8 @@ class Category extends Model
         'is_visible'
 
     ];
-    // public function posts(): HasMany
-    // {
-    //     return $this->hasMany(Category::class, 'category_id');
-    // }
+    public function main(): HasMany
+    {
+        return $this->hasMany(Main::class);
+    }
 }

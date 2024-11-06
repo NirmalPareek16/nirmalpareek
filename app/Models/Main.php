@@ -14,6 +14,12 @@ class Main extends Model
         'status',
         'gender',
         'date_of_birth',
-        'address'
+        'address',
+        'category_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }
