@@ -49,7 +49,7 @@ class LinkResource extends Resource
         return $table
             ->columns([
                 Stack::make([
-                    ImageColumn::make('iamge')->height('100%')->width('100%'),
+                    ImageColumn::make('image')->height('100%')->width('100%'),
                     Stack::make([
                         TextColumn::make('title')->weight(FontWeight::Bold),
                         TextColumn::make('url')
@@ -79,9 +79,9 @@ class LinkResource extends Resource
             ])
 
             ->paginated([
-                18,
-                36,
-                72,
+                10,
+                20,
+                50,
                 'all',
             ])
 
@@ -94,11 +94,11 @@ class LinkResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
 
-            // ->actions([
-            //     Tables\Actions\ViewAction::make(),
-            //     Tables\Actions\EditAction::make(),
-            //     Tables\Actions\DeleteAction::make(),
-            // ])
+            ->actions([
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

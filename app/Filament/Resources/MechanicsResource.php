@@ -9,6 +9,7 @@ use Filament\Forms\Form;
 use App\Models\Mechanics;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
@@ -44,6 +45,8 @@ class MechanicsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

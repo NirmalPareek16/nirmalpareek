@@ -28,12 +28,12 @@ class Post extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function latestOrder()
-    {
-        return $this->hasOne(Category::class)->latestOfMany();
-    }
-    public function largestOrder()
-    {
-        return $this->hasOne(Category::class)->ofMany('price', 'max');
-    }
+    // public function latestOrder()
+    // {
+    //     return $this->hasOne(Category::class)->latestOfMany();
+    // }
+    // public function largestOrder()
+    // {
+    //     return $this->hasOne(Category::class)->ofMany('price', 'max');
+    // }
 }
